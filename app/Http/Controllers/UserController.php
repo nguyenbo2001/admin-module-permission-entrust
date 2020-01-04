@@ -46,7 +46,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|comfirmed|min:6',
+            'password' => 'required|confirmed|min:6',
             'roles' => 'required',
         ]);
 
@@ -87,7 +87,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $roles = Role::get();
-        $userRole = $user->roles->pluck('id')->toArray();
+        $userRoles = $user->roles->pluck('id')->toArray();
 
         return view('users.edit', compact('user', 'roles', 'userRoles'));
     }
@@ -104,7 +104,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'comfirmed',
+            'password' => 'confirmed',
             'roles' => 'required',
         ]);
 

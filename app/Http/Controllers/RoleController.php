@@ -74,7 +74,7 @@ class RoleController extends Controller
         $role = Role::find($id);
 
         // get the permissions linked to the role
-        $permissions = Permission::join('permission_role', 'permissioin_role.permission_id', '=', 'permissions.id')
+        $permissions = Permission::join('permission_role', 'permission_role.permission_id', '=', 'permissions.id')
             ->where('permission_role.role_id', $id)
             ->get();
 
@@ -111,7 +111,7 @@ class RoleController extends Controller
     {
         $this->validate($request, [
             'display_name' => 'required',
-            'descriptioin' => 'required',
+            'description' => 'required',
             'permissions' => 'required',
         ]);
 
