@@ -12,7 +12,7 @@
                 <p>{{ $message }}</p>
               </div>
             @endif
-            <table class="table table-responsive table-striped table-bordered table-condensed">
+            <table class="table table-striped table-bordered table-condensed">
               <thead>
                 <tr>
                   <th>No</th>
@@ -34,7 +34,7 @@
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <button class="btn btn-danger" type="submit" id="delete-task-{{ $role->id }}">
-                          <i class="fa btn fa-trash"></i>Delete
+                          <i class="fa fa-trash"></i>Delete
                         </button>
                       </form>
                     </td>
@@ -42,7 +42,7 @@
                 @endforeach
               </tbody>
             </table>
-            <a href="{{ route('roles.create') }}" class="btn btn-success"></a>
+            <a href="{{ route('roles.create') }}" class="btn btn-success">Add New</a>
           </div>
         </div>
       </div>
